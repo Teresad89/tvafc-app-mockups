@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TVAFC App - Branded Mockups</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3d74 0%, #2b467c 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 36px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 50px;
+            font-size: 18px;
+        }
+        
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            margin: 60px 0 30px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 40px auto;
+        }
+        
+        .phone-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .phone {
+            width: 340px;
+            height: 680px;
+            background: #1a1a1a;
+            border-radius: 35px;
+            padding: 12px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .phone::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 30px;
+            background: #1a1a1a;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+        
+        .phone::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: #333;
+            border-radius: 3px;
+            z-index: 11;
+        }
+        
+        .screen {
+            background: #f8f9fa;
+            height: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .status-bar {
+            height: 60px;
+            background: linear-gradient(135deg, #2b467c 0%, #1e3d74 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            color: white;
+            padding-top: 10px;
+        }
+        
+        .status-time {
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .status-icons {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .status-icon {
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 3px;
+            opacity: 0.9;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2b467c 0%, #1e3d74 100%);
+            padding: 15px 20px;
+            color: white;
+        }
+        
+        .header-with-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .logo-small {
+            width: 32px;
+            height: 32px;
+        }
+        
+        .logo-small svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .header-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .header-subtitle {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+        
+        .tab-bar {
+            height: 70px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10px;
+        }
+        
+        .tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 10px;
+            color: #92a5b6;
+            flex: 1;
+            padding: 8px 0;
+        }
+        
+        .tab.active {
+            color: #1e3d74;
+        }
+        
+        .tab-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 4px;
+            background: #92a5b6;
+            border-radius: 5px;
+        }
+        
+        .tab.active .tab-icon {
+            background: #1e3d74;
+        }
+        
+        .screen-label {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Calendar Styles */
+        .calendar-month {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .month-nav {
+            width: 30px;
+            height: 30px;
+            background: #1e3d74;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .calendar-day-header {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #666;
+            padding: 8px 0;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .calendar-day.empty {
+            color: #ccc;
+        }
+        
+        .calendar-day.today {
+            background: #1e3d74;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .calendar-day.has-event {
+            background: #E8F5FD;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        .calendar-day.has-event::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            width: 4px;
+            height: 4px;
+            background: #1da9df;
+            border-radius: 2px;
+        }
+        
+        .event-list-mini {
+            margin-top: 20px;
+        }
+        
+        .mini-event {
+            background: white;
+            border-left: 4px solid #1da9df;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .mini-event-date {
+            font-size: 11px;
+            color: #1e3d74;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .mini-event-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        /* Event Detail */
+        .event-hero {
+            width: calc(100% + 40px);
+            height: 180px;
+            background: linear-gradient(135deg, #2b467c 0%, #1e3d74 100%);
+            margin: -20px -20px 20px -20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+        }
+        
+        .hero-logo svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+        
+        .event-detail-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .event-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .event-meta-icon {
+            width: 20px;
+            height: 20px;
+            background: #1da9df;
+            border-radius: 4px;
+        }
+        
+        .event-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .attendee-section {
+            background: #E8F5FD;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #1da9df;
+        }
+        
+        .attendee-count {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e3d74;
+            margin-bottom: 10px;
+        }
+        
+        .attendee-avatars {
+            display: flex;
+            gap: -10px;
+        }
+        
+        .avatar {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #2b467c 0%, #1da9df 100%);
+            border-radius: 16px;
+            border: 2px solid white;
+        }
+        
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, #1da9df 0%, #1e3d74 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(29, 169, 223, 0.3);
+        }
+        
+        .btn-secondary {
+            width: 100%;
+            background: white;
+            color: #1e3d74;
+            padding: 16px;
+            border: 2px solid #1e3d74;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        /* Discounts/Offers */
+        .filter-chips {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+        
+        .chip {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #92a5b6;
+            white-space: nowrap;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .chip.active {
+            background: #1e3d74;
+            color: white;
+            border-color: #1e3d74;
+        }
+        
+        .offer-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .offer-header {
+            background: linear-gradient(135deg, #ef3b38 0%, #c62828 100%);
+            padding: 15px;
+            color: white;
+        }
+        
+        .offer-discount {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .offer-type {
+            font-size: 13px;
+            opacity: 0.95;
+        }
+        
+        .offer-body {
+            padding: 15px;
+        }
+        
+        .offer-business {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e3d74;
+            margin-bottom: 6px;
+        }
+        
+        .offer-category {
+            font-size: 13px;
+            color: #92a5b6;
+            margin-bottom: 12px;
+        }
+        
+        .offer-description {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .offer-expiry {
+            font-size: 12px;
+            color: #ef3b38;
+            font-weight: 600;
+        }
+        
+        .offer-badge {
+            display: inline-block;
+            background: #1da9df;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        
+        /* Search Bar */
+        .search-bar {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #1da9df;
+            border-radius: 12px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            background: white;
+        }
+        
+        /* Directory */
+        .directory-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #1da9df;
+        }
+        
+        .directory-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .directory-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2b467c 0%, #1da9df 100%);
+            border-radius: 10px;
+        }
+        
+        .directory-business {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e3d74;
+            margin-bottom: 4px;
+        }
+        
+        .directory-category {
+            font-size: 13px;
+            color: #92a5b6;
+            margin-bottom: 12px;
+        }
+        
+        .directory-services {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        
+        .directory-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .badge-verified {
+            background: #1da9df;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        
+        .badge-discount {
+            background: #ef3b38;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        
+        .badge-location {
+            background: #f5f5f5;
+            color: #666;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        /* Profile */
+        .profile-header {
+            background: linear-gradient(135deg, #2b467c 0%, #1e3d74 100%);
+            width: calc(100% + 40px);
+            margin: -20px -20px 0 -20px;
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 40px;
+            margin: 0 auto 15px auto;
+            border: 3px solid #1da9df;
+        }
+        
+        .profile-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .profile-email {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e3d74;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .profile-section {
+            margin-bottom: 25px;
+        }
+        
+        .section-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e3d74;
+            margin-bottom: 12px;
+        }
+        
+        .setting-item {
+            background: white;
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .setting-label {
+            font-size: 15px;
+            color: #333;
+        }
+        
+        .toggle {
+            width: 50px;
+            height: 28px;
+            background: #ccc;
+            border-radius: 14px;
+            position: relative;
+        }
+        
+        .toggle.on {
+            background: #1da9df;
+        }
+        
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 12px;
+            top: 2px;
+            left: 2px;
+            transition: 0.3s;
+        }
+        
+        .toggle.on::after {
+            left: 24px;
+        }
+        
+        /* Updates Feed */
+        .update-card {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .update-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .centre-logo svg {
+            width: 45px;
+            height: 45px;
+            margin-right: 12px;
+        }
+        
+        .update-source {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e3d74;
+        }
+        
+        .update-time {
+            font-size: 12px;
+            color: #92a5b6;
+        }
+        
+        .update-content {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🇦🇺 Veterans & Families Centre Tasmania</h1>
+<p class="subtitle">Mobile App Interface Design - Fully Branded</p>
+
+<!-- EVENTS SECTION -->
+<div class="section-title">📅 Events & Calendar</div>
+
+<div class="mockup-grid">
+    <!-- Calendar Month View -->
+    <div class="phone-wrapper">
+        <div class="phone">
+            <div class="screen">
+                <div class="status-bar">
+                    <div class="status-time">9:41</div>
+                    <div class="status-icons">
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                    </div>
+                </div>
+                <div class="header">
+                    <div class="header-with-logo">
+                        <div class="logo-small">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                            </svg>
+                        </div>
+                        <div class="header-title">Events Calendar</div>
+                    </div>
+                    <div class="header-subtitle">Statewide events for veterans & families</div>
+                </div>
+                <div class="content">
+                    <div class="calendar-month">
+                        <div class="month-nav">&lt;</div>
+                        <div>March 2026</div>
+                        <div class="month-nav">&gt;</div>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">SUN</div>
+                        <div class="calendar-day-header">MON</div>
+                        <div class="calendar-day-header">TUE</div>
+                        <div class="calendar-day-header">WED</div>
+                        <div class="calendar-day-header">THU</div>
+                        <div class="calendar-day-header">FRI</div>
+                        <div class="calendar-day-header">SAT</div>
+                        
+                        <div class="calendar-day empty">26</div>
+                        <div class="calendar-day empty">27</div>
+                        <div class="calendar-day empty">28</div>
+                        <div class="calendar-day empty">29</div>
+                        <div class="calendar-day empty">30</div>
+                        <div class="calendar-day empty">31</div>
+                        <div class="calendar-day">1</div>
+                        
+                        <div class="calendar-day today">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day has-event">5</div>
+                        <div class="calendar-day">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day">10</div>
+                        <div class="calendar-day">11</div>
+                        <div class="calendar-day">12</div>
+                        <div class="calendar-day">13</div>
+                        <div class="calendar-day">14</div>
+                        <div class="calendar-day has-event">15</div>
+                        
+                        <div class="calendar-day">16</div>
+                        <div class="calendar-day">17</div>
+                        <div class="calendar-day">18</div>
+                        <div class="calendar-day">19</div>
+                        <div class="calendar-day has-event">20</div>
+                        <div class="calendar-day">21</div>
+                        <div class="calendar-day has-event">22</div>
+                        
+                        <div class="calendar-day">23</div>
+                        <div class="calendar-day">24</div>
+                        <div class="calendar-day has-event">25</div>
+                        <div class="calendar-day">26</div>
+                        <div class="calendar-day">27</div>
+                        <div class="calendar-day">28</div>
+                        <div class="calendar-day">29</div>
+                    </div>
+                    
+                    <div class="event-list-mini">
+                        <div class="mini-event">
+                            <div class="mini-event-date">WED 5 MAR • 10:00 AM</div>
+                            <div class="mini-event-title">Coffee Connect - Burnie</div>
+                        </div>
+                        <div class="mini-event">
+                            <div class="mini-event-date">SAT 15 MAR • 10:00 AM</div>
+                            <div class="mini-event-title">Family BBQ Day</div>
+                        </div>
+                        <div class="mini-event">
+                            <div class="mini-event-date">THU 20 MAR • 2:00 PM</div>
+                            <div class="mini-event-title">Support Workshop</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-bar">
+                    <div class="tab active">
+                        <div class="tab-icon"></div>
+                        <div>Events</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Offers</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Directory</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Updates</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Profile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">Calendar with TVAFC Branding</div>
+    </div>
+
+    <!-- Event Detail -->
+    <div class="phone-wrapper">
+        <div class="phone">
+            <div class="screen">
+                <div class="status-bar">
+                    <div class="status-time">9:41</div>
+                    <div class="status-icons">
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="event-hero">
+                        <div class="hero-logo">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                            </svg>
+                        </div>
+                        <div style="font-size: 14px; opacity: 0.9;">TVAFC Event</div>
+                    </div>
+                    <div class="event-detail-title">Coffee Connect - Burnie</div>
+                    
+                    <div class="event-meta">
+                        <div class="event-meta-icon"></div>
+                        <div>Wednesday, 5 March 2026 • 10:00 AM</div>
+                    </div>
+                    
+                    <div class="event-meta">
+                        <div class="event-meta-icon"></div>
+                        <div>Veterans & Families Centre, Burnie</div>
+                    </div>
+                    
+                    <div class="event-description">
+                        Join fellow veterans and families for a relaxed morning coffee and conversation. This is a casual, informal gathering to connect with others in the North West Coast community. All welcome, no RSVP required but helpful for catering.
+                    </div>
+                    
+                    <div class="attendee-section">
+                        <div class="attendee-count">18 people attending</div>
+                        <div class="attendee-avatars">
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                            <div class="avatar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn-primary">I'm Going ✓</div>
+                    <div class="btn-secondary">Add to Calendar</div>
+                </div>
+                <div class="tab-bar">
+                    <div class="tab active">
+                        <div class="tab-icon"></div>
+                        <div>Events</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Offers</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Directory</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Updates</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Profile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">Event Detail with Logo</div>
+    </div>
+
+    <!-- Centre Updates -->
+    <div class="phone-wrapper">
+        <div class="phone">
+            <div class="screen">
+                <div class="status-bar">
+                    <div class="status-time">9:41</div>
+                    <div class="status-icons">
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                    </div>
+                </div>
+                <div class="header">
+                    <div class="header-with-logo">
+                        <div class="logo-small">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                            </svg>
+                        </div>
+                        <div class="header-title">Centre Updates</div>
+                    </div>
+                    <div class="header-subtitle">Latest news & announcements</div>
+                </div>
+                <div class="content">
+                    <div class="update-card">
+                        <div class="update-header">
+                            <div class="centre-logo">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                    <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                    <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="update-source">TVAFC Tasmania</div>
+                                <div class="update-time">2 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="update-content">
+                            We're excited to announce new mental health support services now available statewide. Free initial consultations available. Book your confidential session today through our Directory.
+                        </div>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-header">
+                            <div class="centre-logo">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                    <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                    <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="update-source">TVAFC Tasmania</div>
+                                <div class="update-time">Yesterday</div>
+                            </div>
+                        </div>
+                        <div class="update-content">
+                            Reminder: Coffee Connect Burnie this Wednesday at 10am! Join fellow veterans for a casual morning chat. All welcome - bring a friend or family member.
+                        </div>
+                    </div>
+                    
+                    <div class="update-card">
+                        <div class="update-header">
+                            <div class="centre-logo">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                    <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                    <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="update-source">TVAFC Tasmania</div>
+                                <div class="update-time">3 days ago</div>
+                            </div>
+                        </div>
+                        <div class="update-content">
+                            New discount partners added! Check out the Offers tab for exclusive discounts on legal services, hardware, and healthcare across Tasmania.
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-bar">
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Events</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Offers</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Directory</div>
+                    </div>
+                    <div class="tab active">
+                        <div class="tab-icon"></div>
+                        <div>Updates</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Profile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">Centre Announcements</div>
+    </div>
+</div>
+
+<!-- DISCOUNTS SECTION -->
+<div class="section-title">💰 Veteran Discounts & Directory</div>
+
+<div class="mockup-grid">
+    <!-- Offers List -->
+    <div class="phone-wrapper">
+        <div class="phone">
+            <div class="screen">
+                <div class="status-bar">
+                    <div class="status-time">9:41</div>
+                    <div class="status-icons">
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                    </div>
+                </div>
+                <div class="header">
+                    <div class="header-with-logo">
+                        <div class="logo-small">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                            </svg>
+                        </div>
+                        <div class="header-title">Veteran Discounts</div>
+                    </div>
+                    <div class="header-subtitle">Exclusive offers across Tasmania</div>
+                </div>
+                <div class="content">
+                    <div class="filter-chips">
+                        <div class="chip active">All Offers</div>
+                        <div class="chip">Services</div>
+                        <div class="chip">Retail</div>
+                        <div class="chip">Healthcare</div>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-header">
+                            <div class="offer-discount">20% OFF</div>
+                            <div class="offer-type">Legal Services</div>
+                        </div>
+                        <div class="offer-body">
+                            <div class="offer-business">Smith & Co Legal</div>
+                            <div class="offer-category">Estate Planning • Wills • DVA Claims</div>
+                            <div class="offer-description">
+                                20% discount on all estate planning services for veterans and immediate family members. Includes wills, powers of attorney, and estate administration.
+                            </div>
+                            <div class="offer-badge">✓ VERIFIED PARTNER</div>
+                            <div class="offer-expiry">Valid until 31 Dec 2026</div>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-header" style="background: linear-gradient(135deg, #1da9df 0%, #1e3d74 100%);">
+                            <div class="offer-discount">FREE</div>
+                            <div class="offer-type">Initial Consultation</div>
+                        </div>
+                        <div class="offer-body">
+                            <div class="offer-business">Veterans Counselling TAS</div>
+                            <div class="offer-category">Mental Health • PTSD Support</div>
+                            <div class="offer-description">
+                                Free initial consultation (normally $150) for all veterans. Ongoing sessions available at reduced rates. Specializing in PTSD and transition support.
+                            </div>
+                            <div class="offer-badge">✓ VERIFIED PARTNER</div>
+                            <div class="offer-expiry">Ongoing offer - No expiry</div>
+                        </div>
+                    </div>
+                    
+                    <div class="offer-card">
+                        <div class="offer-header">
+                            <div class="offer-discount">15% OFF</div>
+                            <div class="offer-type">Hardware & Tools</div>
+                        </div>
+                        <div class="offer-body">
+                            <div class="offer-business">Tasmania Hardware Co</div>
+                            <div class="offer-category">Retail • Home Improvement</div>
+                            <div class="offer-description">
+                                15% discount on all in-store purchases. Present your veteran ID or this app at checkout. Excludes sale items and gift cards.
+                            </div>
+                            <div class="offer-badge">✓ VERIFIED PARTNER</div>
+                            <div class="offer-expiry">Valid until 30 Jun 2026</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-bar">
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Events</div>
+                    </div>
+                    <div class="tab active">
+                        <div class="tab-icon"></div>
+                        <div>Offers</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Directory</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Updates</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Profile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">Branded Discount Cards</div>
+    </div>
+
+    <!-- Service Directory -->
+    <div class="phone-wrapper">
+        <div class="phone">
+            <div class="screen">
+                <div class="status-bar">
+                    <div class="status-time">9:41</div>
+                    <div class="status-icons">
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                    </div>
+                </div>
+                <div class="header">
+                    <div class="header-with-logo">
+                        <div class="logo-small">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="50,15 90,75 10,75" fill="#2b467c"/>
+                                <polygon points="50,25 80,75 20,75" fill="#1da9df"/>
+                                <polygon points="50,35 70,75 30,75" fill="#ef3b38"/>
+                            </svg>
+                        </div>
+                        <div class="header-title">Service Directory</div>
+                    </div>
+                    <div class="header-subtitle">Veteran-friendly services statewide</div>
+                </div>
+                <div class="content">
+                    <input type="text" class="search-bar" placeholder="🔍 Search services...">
+                    
+                    <div class="directory-card">
+                        <div class="directory-header">
+                            <div>
+                                <div class="directory-business">Wellness Physiotherapy</div>
+                                <div class="directory-category">Healthcare • Rehabilitation</div>
+                            </div>
+                            <div class="directory-icon"></div>
+                        </div>
+                        <div class="directory-services">
+                            Specializing in sports injuries, post-operative recovery, and chronic pain management. DVA Gold Card accepted.
+                        </div>
+                        <div class="directory-badges">
+                            <div class="badge-verified">✓ VERIFIED</div>
+                            <div class="badge-location">📍 Hobart</div>
+                        </div>
+                    </div>
+                    
+                    <div class="directory-card">
+                        <div class="directory-header">
+                            <div>
+                                <div class="directory-business">Career Transition Services</div>
+                                <div class="directory-category">Employment Support</div>
+                            </div>
+                            <div class="directory-icon"></div>
+                        </div>
+                        <div class="directory-services">
+                            Resume writing, interview coaching, and job placement support for transitioning veterans and families.
+                        </div>
+                        <div class="directory-badges">
+                            <div class="badge-verified">✓ VERIFIED</div>
+                            <div class="badge-discount">FREE SESSION</div>
+                            <div class="badge-location">📍 Launceston</div>
+                        </div>
+                    </div>
+                    
+                    <div class="directory-card">
+                        <div class="directory-header">
+                            <div>
+                                <div class="directory-business">Family Financial Planning</div>
+                                <div class="directory-category">Financial Services</div>
+                            </div>
+                            <div class="directory-icon"></div>
+                        </div>
+                        <div class="directory-services">
+                            Budgeting, superannuation, investment advice. Understanding DVA entitlements and military pensions.
+                        </div>
+                        <div class="directory-badges">
+                            <div class="badge-verified">✓ VERIFIED</div>
+                            <div class="badge-discount">10% OFF</div>
+                            <div class="badge-location">📍 Burnie</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-bar">
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Events</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Offers</div>
+                    </div>
+                    <div class="tab active">
+                        <div class="tab-icon"></div>
+                        <div>Directory</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Updates</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Profile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">Branded Directory</div>
+    </div>
+
+    <!-- User Profile -->
+    <div class="phone-wrapper">
+        <div class="phone">
+            <div class="screen">
+                <div class="status-bar">
+                    <div class="status-time">9:41</div>
+                    <div class="status-icons">
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                        <div class="status-icon"></div>
+                    </div>
+                </div>
+                <div class="content" style="padding: 0;">
+                    <div class="profile-header">
+                        <div class="profile-avatar"></div>
+                        <div class="profile-name">John Smith</div>
+                        <div class="profile-email">john.smith@email.com</div>
+                    </div>
+                    
+                    <div style="padding: 20px;">
+                        <div class="profile-stats">
+                            <div class="stat-box">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Events Attended</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">5</div>
+                                <div class="stat-label">Services Used</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-number">3</div>
+                                <div class="stat-label">Upcoming</div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <div class="section-heading">Notification Settings</div>
+                            <div class="setting-item">
+                                <div class="setting-label">Event Reminders</div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">New Discounts</div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Centre Updates</div>
+                                <div class="toggle on"></div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Weekly Digest</div>
+                                <div class="toggle"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-section">
+                            <div class="section-heading">Account</div>
+                            <div class="setting-item">
+                                <div class="setting-label">Edit Profile</div>
+                                <div style="color: #1e3d74; font-weight: 600;">&gt;</div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label">Privacy Settings</div>
+                                <div style="color: #1e3d74; font-weight: 600;">&gt;</div>
+                            </div>
+                            <div class="setting-item">
+                                <div class="setting-label" style="color: #ef3b38;">Delete Account</div>
+                                <div style="color: #ef3b38; font-weight: 600;">&gt;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-bar">
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Events</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Offers</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Directory</div>
+                    </div>
+                    <div class="tab">
+                        <div class="tab-icon"></div>
+                        <div>Updates</div>
+                    </div>
+                    <div class="tab active">
+                        <div class="tab-icon"></div>
+                        <div>Profile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screen-label">User Profile</div>
+    </div>
+</div>
+
+<div style="height: 60px;"></div>
+
+</body>
+</html>
